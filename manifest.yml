@@ -1,0 +1,23 @@
+modules:
+  jira:projectPage:
+    - key: jira-hello-world-hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: jira-hello-world
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/c9fe8307-8f02-4ff4-8272-eb78db3f9342
+permissions:
+  scopes:
+    - read:jira-user
